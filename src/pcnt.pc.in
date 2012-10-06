@@ -1,0 +1,13 @@
+prefix=@prefix@
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include
+sharedir=${prefix}/share
+sphinxdir=${sharedir}/doc/pcnt/html
+
+Name: pcnt
+Description: FILL_THIS_IN
+Version: @VERSION@
+URL: FILL_THIS_IN
+Libs: -L${libdir} -lpcnt
+Cflags: -I${includedir}
