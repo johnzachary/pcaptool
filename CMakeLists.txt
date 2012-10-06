@@ -8,7 +8,7 @@
 # ----------------------------------------------------------------------
 
 cmake_minimum_required(VERSION 2.6)
-set(PROJECT_NAME APPNAME)
+set(PROJECT_NAME pcnt)
 project(${PROJECT_NAME})
 enable_testing()
 

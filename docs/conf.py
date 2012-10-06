@@ -5,8 +5,8 @@ import sys, os
 extensions = []
 source_suffix = '.rst'
 master_doc = 'index'
-project_name = u'APPNAME'
-project_slug = u'appname'
+project_name = u'pcnt'
+project_slug = u'pcnt'
 company = u'COMPANY'
 copyright_years = u'2012'
 

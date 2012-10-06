@@ -12,17 +12,17 @@ include_directories(../include)
 #-----------------------------------------------------------------------
 # Build the library
 
-file(GLOB_RECURSE LIBAPPNAME_SRC libAPPNAME/*.c)
+file(GLOB_RECURSE LIBPCNT_SRC libpcnt/*.c)
 
-add_library(libAPPNAME SHARED ${LIBAPPNAME_SRC})
-set_target_properties(libAPPNAME PROPERTIES
+add_library(libpcnt SHARED ${LIBPCNT_SRC})
+set_target_properties(libpcnt PROPERTIES
     OUTPUT_NAME appname
     SOVERSION 0.0.0)
-target_link_libraries(libAPPNAME
+target_link_libraries(libpcnt
     ${CORK_LIBRARIES}
 )
 
-install(TARGETS libAPPNAME
+install(TARGETS libpcnt
     RUNTIME DESTINATION bin
     LIBRARY DESTINATION lib)
 
@@ -30,6 +30,6 @@ install(TARGETS libAPPNAME
 # Generate the pkg-config file
 
 set(prefix ${CMAKE_INSTALL_PREFIX})
-configure_file(libAPPNAME.pc.in libAPPNAME.pc @ONLY)
-install(FILES ${CMAKE_CURRENT_BINARY_DIR}/libAPPNAME.pc
+configure_file(libpcnt.pc.in libpcnt.pc @ONLY)
+install(FILES ${CMAKE_CURRENT_BINARY_DIR}/libpcnt.pc
         DESTINATION lib/pkgconfig)
