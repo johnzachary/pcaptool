@@ -12,24 +12,47 @@ include_directories(../include)
 #-----------------------------------------------------------------------
 # Build the library
 
-file(GLOB_RECURSE LIBPCNT_SRC libpcnt/*.c)
-
-add_library(libpcnt SHARED ${LIBPCNT_SRC})
-set_target_properties(libpcnt PROPERTIES
-    OUTPUT_NAME appname
-    SOVERSION 0.0.0)
-target_link_libraries(libpcnt
-    ${CORK_LIBRARIES}
+set(LIBPCAPTOOL_SRC
+    libpcaptool.c
 )
 
-install(TARGETS libpcnt
-    RUNTIME DESTINATION bin
-    LIBRARY DESTINATION lib)
+add_library(libpcaptool SHARED ${LIBPCAPTOOL_SRC})
+set_target_properties(libpcaptool PROPERTIES
+    OUTPUT_NAME libpcaptool
+    SOVERSION 0.0.0
+)
+target_link_libraries(libpcaptool
+    ${CORK_LIBRARIES}
+    ${CLOGGER_LIBRARIES}
+    ${PCAP_LIBRARY}
+)
+
+#-----------------------------------------------------------------------
+# Build the executable
+
+set(PCAPTOOL_SRC
+    pcaptool.c
+)
+
+add_executable(pcaptool ${PCAPTOOL_SRC})
+target_link_libraries(pcaptool
+    ${CORK_LIBRARIES}
+    ${CLOGGER_LIBRARIES}
+    ${PCAP_LIBRARY}
+)
+
+#-----------------------------------------------------------------------
+# Install the library and executable
+
+install(TARGETS pcaptool libpcaptool
+    DESTINATION bin
+    LIBRARY DESTINATION lib
+)
 
 #-----------------------------------------------------------------------
 # Generate the pkg-config file
 
 set(prefix ${CMAKE_INSTALL_PREFIX})
-configure_file(libpcnt.pc.in libpcnt.pc @ONLY)
-install(FILES ${CMAKE_CURRENT_BINARY_DIR}/libpcnt.pc
+configure_file(pcaptool.pc.in pcaptool.pc @ONLY)
+install(FILES ${CMAKE_CURRENT_BINARY_DIR}/pcaptool.pc
         DESTINATION lib/pkgconfig)

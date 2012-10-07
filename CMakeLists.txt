@@ -8,7 +8,7 @@
 # ----------------------------------------------------------------------
 
 cmake_minimum_required(VERSION 2.6)
-set(PROJECT_NAME pcnt)
+set(PROJECT_NAME pcaptool)
 project(${PROJECT_NAME})
 enable_testing()
 
@@ -36,6 +36,12 @@ find_package(PkgConfig)
 pkg_check_modules(CORK REQUIRED libcork)
 include_directories(${CORK_INCLUDE_DIRS})
 link_directories(${CORK_LIBRARY_DIRS})
+
+pkg_check_modules(CLOGGER REQUIRED clogger)
+include_directories(${CLOG_INCLUDE_DIRS})
+link_directories(${CLOG_LIBRARY_DIRS})
+
+find_library(PCAP_LIBRARY pcap)
 
 #-----------------------------------------------------------------------
 # Set some options

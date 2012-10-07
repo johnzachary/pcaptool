@@ -5,9 +5,9 @@ import sys, os
 extensions = []
 source_suffix = '.rst'
 master_doc = 'index'
-project_name = u'pcnt'
-project_slug = u'pcnt'
-company = u'COMPANY'
+project_name = u'pcaptool'
+project_slug = u'pcaptool'
+company = u'JohnZachary'
 copyright_years = u'2012'
 
 default_role = 'c:func'
@@ -31,7 +31,7 @@ rst_epilog = """
 # uncomment out the last line of this block; we need it commented so
 # that this conf.py file still works if CMake doesn't do its
 # substitution thing.
-# @INTERSPHINX_OVERRIDES@
+# 
 
 #----------------------------------------------------------------------
 # Everything below here shouldn't need to be changed.
@@ -40,7 +40,9 @@ release = None
 version = None
 
 # Give CMake a chance to insert a version number
-# @VERSION_FOR_CONF_PY@
+# 
+release="0.0"
+version="0.0"
 
 # Otherwise grab version from git
 if version is None:

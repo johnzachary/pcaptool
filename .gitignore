@@ -1,11 +1,11 @@
-/build/
+build/
 /.build/
 
 RELEASE-VERSION
-pcnt.pc
+pacstat.pc
 
-/pcnt*.tar.gz
-/pcnt*.tar.bz2
+/pacstat*.tar.gz
+/pacstat*.tar.bz2
 
 *.[oa]
 *.os

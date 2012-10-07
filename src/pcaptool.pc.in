@@ -1,0 +1,13 @@
+prefix=@prefix@
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include
+sharedir=${prefix}/share
+sphinxdir=${sharedir}/doc/pcaptool/html
+
+Name: pcaptool
+Description: A simple tool to process libpcap files using callback functions.
+Version: @VERSION@
+URL: http://github.com/johnzachary/pcaptool
+Libs: -L${libdir} -lpcaptool
+Cflags: -I${includedir}
